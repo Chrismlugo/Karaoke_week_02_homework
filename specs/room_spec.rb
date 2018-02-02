@@ -8,10 +8,10 @@ require_relative ('../room.rb')
 class RoomTest < MiniTest::Test
   def setup
 
-    @room1 = Room.new("Disco Room",[], [])
-    @room2 = Room.new("Room of Rock",[], [])
-    @room3 = Room.new("Ballads Ballroom",[], [])
-    @room4 = Room.new("Party palace",[], [])
+    @room1 = Room.new("Disco Room",[], [], 10)
+    @room2 = Room.new("Room of Rock",[], [], 8)
+    @room3 = Room.new("Ballads Ballroom",[], [], 10)
+    @room4 = Room.new("Party palace",[], [], 20)
 
 
   end
@@ -43,9 +43,34 @@ class RoomTest < MiniTest::Test
   end
 
   def test_add_song_to_room_playlist
-    song = Song.new("You've got a friend in me", "Randy Newman" )
+    song = Song.new("You've got a friend in me", "Randy Newman", "Toy Story" )
     @room1.add_song(song)
     assert_equal(1, @room1.count_playlist)
   end
-  
+
+  def test_is_room_at_capacity
+    guest1 = Guest.new("Ben", "Dancing in the moonlight", "Thin Lizzy")
+    guest2 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
+    guest3 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
+    guest4 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
+    guest5 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
+    guest6 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
+    guest7 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
+    guest8 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
+    @room1.check_in(guest1)
+    @room1.check_in(guest2)
+    @room1.check_in(guest3)
+    @room1.check_in(guest4)
+    @room1.check_in(guest5)
+    @room1.check_in(guest6)
+    @room1.check_in(guest7)
+    @room1.check_in(guest8)
+
+
+
+    assert_equal("room is at capacity!", @room1.at_capacity)
+
+  end
+
+
 end

@@ -1,12 +1,13 @@
 class Room
 
-  attr_reader :name
+  attr_reader :name, :capacity
 
 
-  def initialize(name, guests_in_room, room_playlist)
+  def initialize(name, guests_in_room, room_playlist, capacity)
   @name = name
   @guests_in_room = []
   @room_playlist = []
+  @capacity = capacity
 
   end
 
@@ -29,6 +30,14 @@ end
 def add_song(song)
 
   @room_playlist << song
+
+end
+
+
+def at_capacity
+  if @guests_in_room.count >= capacity
+  end
+  p "room is at capacity!"
 
 end
 
