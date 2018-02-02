@@ -32,4 +32,15 @@ class RoomTest < MiniTest::Test
       @room.check_out(guest)
       assert_equal(0, @room.count_room)
   end
+
+  def test_can_count_playlist_array
+    result = @room.count_playlist
+    assert_equal(0, result)
+  end
+
+  def test_add_song_to_room_playlist
+    song = Song.new("You've got a friend in me", "Randy Newman" )
+    @room.add_song(song)
+    assert_equal(1, @room.count_playlist)
+  end
 end

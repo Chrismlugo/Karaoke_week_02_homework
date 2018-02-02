@@ -21,6 +21,16 @@ def check_out(guest)
   @guests_in_room.delete(guest)
 end
 
+def count_playlist
+  return @room_playlist.count
+end
+
+def add_song(song)
+  
+  @room_playlist << song
+
+end
+
 
 
 
