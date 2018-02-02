@@ -47,4 +47,5 @@ class RoomTest < MiniTest::Test
     @room1.add_song(song)
     assert_equal(1, @room1.count_playlist)
   end
+  
 end
