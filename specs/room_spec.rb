@@ -83,5 +83,17 @@ class RoomTest < MiniTest::Test
 
   end
 
+  def test_guest_can_pay_entry_fee
+    guest1 = Guest.new("Ben", 40.00,"Dancing in the moonlight", "Thin Lizzy")
+  @room2.check_in(guest1)
+  wallet = guest1.wallet
+  entry_fee = @room2.entry_fee
+
+  result = wallet - entry_fee
+
+  assert_equal(30.0, result)
+
+  end
+
 
 end
