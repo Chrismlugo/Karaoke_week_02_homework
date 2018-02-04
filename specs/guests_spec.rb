@@ -8,7 +8,10 @@ require_relative ('../room.rb')
 class GuestTest < MiniTest::Test
 
 def setup
-  @guest = Guest.new("Ben", "Bicycle Race", "Queen")
+  @guest1 = Guest.new("Ben", 40.00 "Bicycle Race", "Queen")
+  @guest2 = Guest.new("John", 40.00 "", "Queen")
+  @guest3 = Guest.new("Ben", 40.00 "Bicycle Race", "Queen")
+  @guest4 = Guest.new("Ben", 40.00 "Bicycle Race", "Queen")
 end
 
 def test_guest_has_name

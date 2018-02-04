@@ -1,9 +1,9 @@
 class Guest
 
-  attr_reader :guest, :favourite_song, :favourite_artist
+  attr_reader :name, :favourite_song, :favourite_artist
 
-  def initialize(guest, favourite_song, favourite_artist)
-    @guest = guest
+  def initialize(name, favourite_song, favourite_artist)
+    @name = name
     @favourite_song = favourite_song
     @favourite_artist = favourite_artist
   end

@@ -8,12 +8,16 @@ require_relative ('../room.rb')
 class RoomTest < MiniTest::Test
   def setup
 
-    @room1 = Room.new("Disco Room",[], [], 10)
-    @room2 = Room.new("Room of Rock",[], [], 8)
-    @room3 = Room.new("Ballads Ballroom",[], [], 10)
-    @room4 = Room.new("Party palace",[], [], 20)
+    @room1 = Room.new(12.00,"Disco Room",[], [], 10)
+    @room2 = Room.new(10.00,"Room of Rock",[], [], 8)
+    @room3 = Room.new(12.00, "Ballads Ballroom",[], [], 10)
+    @room4 = Room.new(20.00, "80's Party palace",[], [], 20)
 
 
+  end
+
+  def test_room_has_an_entry_fee
+    assert_equal(12.00, @room3.entry_fee)
   end
 
   def test_room_has_name
@@ -43,7 +47,7 @@ class RoomTest < MiniTest::Test
   end
 
   def test_add_song_to_room_playlist
-    song = Song.new("You've got a friend in me", "Randy Newman", "Toy Story" )
+    song = Song.new("You've got a friend in me", "Randy Newman", "" )
     @room1.add_song(song)
     assert_equal(1, @room1.count_playlist)
   end
@@ -57,18 +61,22 @@ class RoomTest < MiniTest::Test
     guest6 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
     guest7 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
     guest8 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
-    @room1.check_in(guest1)
-    @room1.check_in(guest2)
-    @room1.check_in(guest3)
-    @room1.check_in(guest4)
-    @room1.check_in(guest5)
-    @room1.check_in(guest6)
-    @room1.check_in(guest7)
-    @room1.check_in(guest8)
+    guest9 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
+    guest10 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
+    @room3.check_in(guest1)
+    @room3.check_in(guest2)
+    @room3.check_in(guest3)
+    @room3.check_in(guest4)
+    @room3.check_in(guest5)
+    @room3.check_in(guest6)
+    @room3.check_in(guest7)
+    @room3.check_in(guest8)
+    @room3.check_in(guest9)
+    @room3.check_in(guest10)
 
 
 
-    assert_equal("room is at capacity!", @room1.at_capacity)
+    assert_equal("Room is at capacity!", @room3.at_capacity)
 
   end
 
