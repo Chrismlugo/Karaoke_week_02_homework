@@ -30,13 +30,16 @@ class RoomTest < MiniTest::Test
   end
 
   def test_can_check_in_guest
-    guest = Guest.new("Jeff", "Private Gambler", "Tina Turner")
+    guest = Guest.new("Jeff", 40.00, "Private Gambler", "Tina Turner")
     @room2.check_in(guest)
     assert_equal(1, @room2.count_room)
   end
 
   def test_can_check_out_guest
-      guest = Guest.new("Jeff", "Private Gambler", "Tina Turner")
+      guest = Guest.new("Jeff", 40.00, "Private Gambler", "Tina Turner")
+      @room1.check_in(guest)
+
+
       @room1.check_out(guest)
       assert_equal(0, @room1.count_room)
   end
@@ -53,16 +56,16 @@ class RoomTest < MiniTest::Test
   end
 
   def test_is_room_at_capacity
-    guest1 = Guest.new("Ben", "Dancing in the moonlight", "Thin Lizzy")
-    guest2 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
-    guest3 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
-    guest4 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
-    guest5 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
-    guest6 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
-    guest7 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
-    guest8 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
-    guest9 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
-    guest10 = Guest.new("Sven", "Dancing in the moonlight", "Thin Lizzy")
+    guest1 = Guest.new("Ben", 40.00,"Dancing in the moonlight", "Thin Lizzy")
+    guest2 = Guest.new("Sven",40.00, "Dancing in the moonlight", "Thin Lizzy")
+    guest3 = Guest.new("Sven",40.00, "Dancing in the moonlight", "Thin Lizzy")
+    guest4 = Guest.new("Sven",40.00, "Dancing in the moonlight", "Thin Lizzy")
+    guest5 = Guest.new("Sven", 40.00,"Dancing in the moonlight", "Thin Lizzy")
+    guest6 = Guest.new("Sven", 40.00,"Dancing in the moonlight", "Thin Lizzy")
+    guest7 = Guest.new("Sven", 40.00,"Dancing in the moonlight", "Thin Lizzy")
+    guest8 = Guest.new("Sven", 40.00,"Dancing in the moonlight", "Thin Lizzy")
+    guest9 = Guest.new("Sven", 40.00,"Dancing in the moonlight", "Thin Lizzy")
+    guest10 = Guest.new("Sven", 40.00,"Dancing in the moonlight", "Thin Lizzy")
     @room3.check_in(guest1)
     @room3.check_in(guest2)
     @room3.check_in(guest3)
